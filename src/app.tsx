@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import parcelLogo from './assets/parcel.svg'
+
+const preactLogo = new URL('./assets/preact.svg', import.meta.url);
+const parcelLogo = new URL('./assets/parcel.svg', import.meta.url);
 
 export function App() {
   const [count, setCount] = useState(0)
@@ -11,20 +12,20 @@ export function App() {
         <div class="flex justify-center gap-8">
           <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">
             <img
-              src={parcelLogo}
-              class="h-24 p-6 transition hover:drop-shadow-[0_0_2em_#646cffaa]"
-              alt="Vite logo"
+              src={parcelLogo.toString()}
+              class="h-24 p-6 transition hover:drop-shadow-[0_0_2em_#e7dacb]"
+              alt="Parcel logo"
             />
           </a>
           <a href="https://preactjs.com" target="_blank" rel="noopener noreferrer">
             <img
-              src={preactLogo}
+              src={preactLogo.href}
               class="h-24 p-6 transition hover:drop-shadow-[0_0_2em_#673ab8aa]"
               alt="Preact logo"
             />
           </a>
         </div>
-        <h1 class="my-8 text-5xl font-normal leading-tight">Vite + Preact</h1>
+        <h1 class="my-8 text-5xl font-normal leading-tight">Parcel + Preact</h1>
         <div class="p-8">
           <button
             onClick={() => setCount((count) => count + 1)}
@@ -44,11 +45,11 @@ export function App() {
             class="font-medium text-[#646cff] transition-colors hover:text-[#747bff]"
             rel="noopener noreferrer"
           >
-            create-preact
+            preact
           </a>
-          , the official Preact + Vite starter
+          , the Getting Started guide
         </p>
-        <p class="mt-4 text-sm text-gray-500">Click on the Vite and Preact logos to learn more</p>
+        <p class="mt-4 text-sm text-gray-500">Click on the Parcel and Preact logos to learn more</p>
       </div>
     </div>
   )
